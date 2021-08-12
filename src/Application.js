@@ -7,18 +7,22 @@ import NewGrudge from './NewGrudge';
 
 import initialState from './initialState';
 
+const reducer = (state, action) => {
+  return state;
+};
+
 const Application = () => {
   const [grudges, setGrudges] = useState(initialState);
 
-  const addGrudge = grudge => {
+  const addGrudge = (grudge) => {
     grudge.id = id();
     grudge.forgiven = false;
     setGrudges([grudge, ...grudges]);
   };
 
-  const toggleForgiveness = id => {
+  const toggleForgiveness = (id) => {
     setGrudges(
-      grudges.map(grudge => {
+      grudges.map((grudge) => {
         if (grudge.id !== id) return grudge;
         return { ...grudge, forgiven: !grudge.forgiven };
       })
